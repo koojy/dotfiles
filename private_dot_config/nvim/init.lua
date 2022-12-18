@@ -1,0 +1,5 @@
+require("packer_init")
+require("autocmd")
+require("options")
+require("mappings")
+require("plugins")
