@@ -2,6 +2,7 @@ local nightfox = require("nightfox")
 
 nightfox.setup({
 	options = {
+    transparent = true,
   	fox = "hybridfox",
 		styles = {
 			comments = "italic",

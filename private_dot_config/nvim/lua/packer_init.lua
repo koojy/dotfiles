@@ -1,39 +1,79 @@
 vim.cmd[[packadd packer.nvim]]
 
 require'packer'.startup(function()
+  -- ========================
+  -- package manager
+  -- ========================
   use{'wbthomason/packer.nvim', opt = true}
 
+  -- ========================
+  -- theme
+  -- ========================
   use{'EdenEast/nightfox.nvim'}
 
+  -- ========================
+  -- fizzy
+  -- ========================
   use{
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-	use {
-		"nvim-telescope/telescope-frecency.nvim",
-		config = function()
-			require"telescope".load_extension("frecency")
-		end,
-		requires = {"tami5/sqlite.lua"}
-	}
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require"telescope".load_extension("frecency")
+    end,
+    requires = {"tami5/sqlite.lua"}
+  }
 
-  -- use{'sidebar-nvim/sidebar.nvim'}
-
+  -- ========================
+  -- fizzy
+  -- ========================
   use("neovim/nvim-lspconfig")
-  use("williamboman/nvim-lsp-installer")
+
+  use {
+    "williamboman/mason.nvim", 
+    build = ":MasonUpdate"
+  }
+  use { "williamboman/mason-lspconfig" }
+
   use("weilbith/nvim-lsp-smag")
-  use("folke/lsp-colors.nvim")
+
+  use('MunifTanjim/prettier.nvim')
+
+  use { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }
+
+  use { "elentok/format-on-save.nvim" }
+
+  -- ========================
+  -- appearance
+  -- ========================
   use("j-hui/fidget.nvim")
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
   use("hrsh7th/cmp-cmdline")
-	use("onsails/lspkind.nvim")
+  use("onsails/lspkind.nvim")
 
-	use { "L3MON4D3/LuaSnip" }
+  use { "L3MON4D3/LuaSnip" }
 
+  use { "nvim-tree/nvim-web-devicons" }
+
+  -- ========================
+  -- treesitter
+  -- ========================
   use("nvim-treesitter/nvim-treesitter")
   use("nvim-treesitter/nvim-treesitter-context")
   use("p00f/nvim-ts-rainbow")
@@ -41,17 +81,18 @@ require'packer'.startup(function()
   use("haringsrob/nvim_context_vt")
   use("m-demare/hlargs.nvim")
   use("eirabben/tree-sitter-twig")
-  use("nelsyeung/twig.vim")
 
-	use {
-		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
-	}
+  use("nelsyeung/twig.vim") -- required?
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
   use("windwp/nvim-ts-autotag")
 
-	use {
-  "nvim-neo-tree/neo-tree.nvim",
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     requires = { 
       "nvim-lua/plenary.nvim",
@@ -60,44 +101,38 @@ require'packer'.startup(function()
     },
   }
 
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+  use("lukas-reineke/indent-blankline.nvim")
 
-	use {
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig"
-	}
+  use { "numToStr/Comment.nvim" }
 
-	use("lukas-reineke/indent-blankline.nvim")
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
 
-	use("jose-elias-alvarez/null-ls.nvim")
+  -- ========================
+  -- git
+  -- ========================
+  use { "TimUntersberger/neogit" }
 
-	use('MunifTanjim/prettier.nvim')
+  use("hotwatermorning/auto-git-diff")
 
-	use { "numToStr/Comment.nvim" }
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2',
+  }
 
-	use {
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	}
+  use("gpanders/editorconfig.nvim")
 
-	use { "TimUntersberger/neogit" }
+  use("RRethy/vim-illuminate")
 
-	use {
-		'phaazon/hop.nvim',
-		branch = 'v2',
-	}
+  use("petertriho/nvim-scrollbar")
 
-	use("gpanders/editorconfig.nvim")
+  use("norcalli/nvim-colorizer.lua")
 
-	use("RRethy/vim-illuminate")
- 
-	use("petertriho/nvim-scrollbar")
+  use("williamboman/nvim-lsp-installer")
 
-	use("norcalli/nvim-colorizer.lua")
+  use { "thinca/vim-quickrun" }
 
-	-- use("rhysd/committia.vim")
-	use("hotwatermorning/auto-git-diff")
+  use { "github/copilot.vim" }
 end)
