@@ -1,4 +1,9 @@
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#!/usr/bin/env zsh
+
+if [[ ${uname_txt} =~ ^Linux* ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 eval "$(starship init zsh)"
 eval "$(rtx activate zsh)"
 eval "$(sheldon source)"
@@ -30,17 +35,17 @@ export GO11MODULE=on
 ###
 alias vi="nvim"
 alias vim="nvim"
+alias gs="git status"
 
 alias relogin="exec $SHELL -l"
+
+alias server="python -m SimpleHTTPServer "
 
 # chezmoi
 alias ce="chezmoi edit"
 alias cad="chezmoi add"
 alias cap="chezmoi apply"
 
-alias ezsh="chezmoi edit ~/.zshrc"
-alias esheldon="chezmoi edit ~/.config/sheldon/plugins.toml"
-alias ewezterm="chezmoi edit /mnt/c/Users/koojy/.wezterm.lua"
 
 # -----
 ## ghqとの連携。ghqの管理化にあるリポジトリを一覧表示する。ctrl - ]にバインド。
@@ -56,3 +61,4 @@ zle -N peco-src
 bindkey '^]' peco-src
 # -----
 
+bindkey -v

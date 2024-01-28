@@ -14,3 +14,5 @@ o.listchars:append("space:⋅")
 o.listchars:append("eol:↴")
 o.winblend = 0
 o.pumblend = 0
+o.clipboard="unnamedplus"
+o.wrap = true

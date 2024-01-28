@@ -5,6 +5,7 @@ format_on_save.setup {
   formatter_by_ft = {
     typescript = formatters.prettierd,
     typescriptreact = formatters.prettierd,
+    markdown = formatters.prettierd,
     yaml = formatters.lsp,
   }
 }

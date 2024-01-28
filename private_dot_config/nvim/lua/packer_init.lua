@@ -135,4 +135,10 @@ require'packer'.startup(function()
   use { "thinca/vim-quickrun" }
 
   use { "github/copilot.vim" }
+
+  use { "b0o/schemastore.nvim" } -- schema store plugin
+
+  use { "dhruvasagar/vim-table-mode" }
+
+  use { "akinsho/toggleterm.nvim" }
 end)

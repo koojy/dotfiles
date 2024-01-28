@@ -17,15 +17,16 @@ for idx, dom in ipairs(wsl_domains) do
   end
 end
 
-config.window_background_opacity = 0.5
-config.default_domain = 'WSL:Ubuntu-20.04'
+-- config.color_schema = 'Batman'
+config.window_background_opacity = 0.9
+
+-- config.default_domain = 'WSL:Ubuntu-20.04'
 config.wsl_domains = wsl_domains
+config.font_size = 13.3
+config.font = wezterm.font("Hack", {weight="Regular", stretch="Normal", style="Normal"})
+
 config.keys = {
-  {
-    key = 'r',
-    mods = 'CMD|SHIFT',
-    action = wezterm.action.ReloadConfiguration,
-  },
+  
 }
 
 return config

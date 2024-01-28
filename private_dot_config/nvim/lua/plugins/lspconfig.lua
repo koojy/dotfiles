@@ -28,12 +28,28 @@ lspconfig.efm.setup({
           lintFormats = { "%f:%l:%c: %m" },
         },
       },
+      markdown = { {
+        lintIgnoreExitCode = true,
+        lintCommand = [[npx textlint -f json ${INPUT} | jq -r '.[] | .filePath as $filePath | .messages[] | "1;\($filePath):\(.line):\(.column):\n2;\(.message | split("\n")[0])\n3;[\(.ruleId)]"']],
+        lintFormats = { '%E1;%E%f:%l:%c:', '%C2;%m', '%C3;%m%Z' },
+      } }
     },
   },
   filetypes = {
     "lua",
   },
 })
+
+lspconfig.jsonls.setup {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}
+
+lspconfig.prismals.setup {}
 
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- local navic = require("nvim-navic")

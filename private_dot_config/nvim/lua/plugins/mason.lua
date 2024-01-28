@@ -26,7 +26,6 @@ mason_lspconfig.setup_handlers {
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
-      vim.keymap.set('n', 'p', vim.lsp.buf.format, bufopts)
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
