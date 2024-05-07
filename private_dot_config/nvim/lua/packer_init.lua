@@ -31,6 +31,10 @@ require'packer'.startup(function()
   -- ========================
   use("neovim/nvim-lspconfig")
 
+  use { "nvim-lua/plenary.nvim" }
+  use { "jose-elias-alvarez/null-ls.nvim" }
+  use { "nvimtools/none-ls.nvim" }
+
   use {
     "williamboman/mason.nvim", 
     build = ":MasonUpdate"
@@ -39,7 +43,7 @@ require'packer'.startup(function()
 
   use("weilbith/nvim-lsp-smag")
 
-  use('MunifTanjim/prettier.nvim')
+  -- use('MunifTanjim/prettier.nvim')
 
   use { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }
 
@@ -66,17 +70,22 @@ require'packer'.startup(function()
   use("hrsh7th/cmp-path")
   use("hrsh7th/cmp-cmdline")
   use("onsails/lspkind.nvim")
+  use { "nvimdev/lspsaga.nvim" }
 
   use { "L3MON4D3/LuaSnip" }
 
   use { "nvim-tree/nvim-web-devicons" }
+
+  use { "glench/vim-jinja2-syntax"}
+
+  use { "nvim-zh/colorful-winsep.nvim" }
 
   -- ========================
   -- treesitter
   -- ========================
   use("nvim-treesitter/nvim-treesitter")
   use("nvim-treesitter/nvim-treesitter-context")
-  use("p00f/nvim-ts-rainbow")
+  -- use("HiPhish/nvim-ts-rainbow2")
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("haringsrob/nvim_context_vt")
   use("m-demare/hlargs.nvim")
@@ -84,10 +93,7 @@ require'packer'.startup(function()
 
   use("nelsyeung/twig.vim") -- required?
 
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
+  use { "windwp/nvim-autopairs" }
 
   use("windwp/nvim-ts-autotag")
 
@@ -129,8 +135,6 @@ require'packer'.startup(function()
   use("petertriho/nvim-scrollbar")
 
   use("norcalli/nvim-colorizer.lua")
-
-  use("williamboman/nvim-lsp-installer")
 
   use { "thinca/vim-quickrun" }
 
